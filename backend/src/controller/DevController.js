@@ -1,5 +1,6 @@
 const { get } = require('axios')
 const Dev = require('./../models/dev')
+const ParseStringAsArray = require('../utils/ParseStringAsArray')
 
 module.exports = {
 
@@ -21,7 +22,7 @@ module.exports = {
             
                 const { name = login, avatar_url, bio } = response.data
         
-                const techsArray = techs.split(',').map(tech => tech.trim())
+                const techsArray = ParseStringAsArray(techs)
         
                 const location = {
                     type: 'Point',
