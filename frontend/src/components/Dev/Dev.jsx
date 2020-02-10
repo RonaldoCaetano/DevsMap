@@ -9,7 +9,7 @@ export default function Dev(props) {
     useEffect(() => {
         async function loadDevs() {
             const response = await api.get('/devs')
-            setDevs(response.data)
+            setDevs(response.data)            
         }
         loadDevs()
     }, [])
@@ -22,7 +22,7 @@ export default function Dev(props) {
                         <img src={dev.avatar_url} alt={dev.name}/>
                         <div className="user-info">
                             <strong>{dev.name}</strong>
-                            <span>{dev.techs}</span>
+                            <span>{String(dev.techs).replace(/[,]/g, ", ")}</span>
                         </div>
                     </header>
                     <p></p>
